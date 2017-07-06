@@ -1,0 +1,50 @@
+\documentclass{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\begin{document}
+
+\begin{center}
+\includegraphics[width=6cm]{gitimage.png}
+\end{center}
+
+初期設定
+1.Gitで管理したいディレクトリを作成
+mkdir ディレクトリ
+cd ディレクトリ
+
+2.Gitを使う宣言
+git init %.gitフォルダが作られる
+
+3.Gitで管理したくないものはここに記述
+emacs .gitignore
+
+コミット準備
+	事前確認
+		1.ファイルの状態を確認
+		git status
+		2.差分を確認
+		git diff
+	管理対象に追加
+	git add .   %今のディレクトリより下のものを全て管理対象に追加
+
+	add後確認
+	git status
+	差分確認
+	git diff --cached
+
+コミット
+	コメント付きでコミット
+	git commit -m "first comment"
+
+
+ローカルでの開発内容を共有リポジトリに反映させる。
+git push -u origin master
+
+origin登録
+共有リポジトリを登録
+git remote add origin https://github.com/xxx/xxx.git
+
+gitのリモートリポジトリoriginのＵＲＬを変更する
+\$ git remote set-url origin https://github.com/koheiyasuda/dotfiles.git
+
+
+\end{document}
