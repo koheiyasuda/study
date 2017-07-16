@@ -21,6 +21,7 @@ void dr_End(Sint16 posX, Sint16 posY);
 void inputEngine();
 void startGame();
 void backTitle();
+void backGraund();
 
 
 typedef struct
@@ -40,4 +41,18 @@ typedef struct
             time;//zキーの押された時間
 }inputKeys;
 extern inputKeys keys;
+
+#define starMax 8
+typedef struct{
+    Sint16 flg[starMax],
+    posX[starMax],
+    posY[starMax];
+
+}backStars;
+extern backStars starA,starB,starC;
+
+void stars_reset();
+void stars();
+
+void bg_gra();
 

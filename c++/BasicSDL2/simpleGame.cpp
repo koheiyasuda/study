@@ -1,5 +1,4 @@
-﻿
-/* 
+﻿/* 
  SDL2 example that allows user to move an object using arrow keys. 
  This is meant to be used as a convenient single-file starting point for 
  more complex projects. 
@@ -172,7 +171,8 @@ void Game::onKeyUp( SDL_Event* evt ) {
 }  
   
 int main(int argc, char** argv){  
-  Game game;  
+  Game game;
     game.start();  
   return 0;  
-}  
+}
+

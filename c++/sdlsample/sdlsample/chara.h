@@ -45,14 +45,7 @@ typedef struct{
 }tamas;
 extern tamas tama[eBltMax];
 
-#define starMax 8
-typedef struct{
-    Sint16 flg[starMax],
-                posX[starMax],
-    posY[starMax];
 
-}backStars;
-extern backStars starA,starB,starC;
 
 void me_src(Sint16 posX, Sint16 posY);
 void me_srcB(Sint16 posX,Sint16 posY);

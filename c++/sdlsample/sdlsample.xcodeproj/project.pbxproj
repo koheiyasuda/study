@@ -15,6 +15,8 @@
 		812540481F0F7C7900C0AF25 /* others.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 812540461F0F7C7900C0AF25 /* others.cpp */; };
 		8125404C1F112A1D00C0AF25 /* chara.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8125404A1F112A1D00C0AF25 /* chara.cpp */; };
 		8125404F1F126E8400C0AF25 /* efect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8125404D1F126E8400C0AF25 /* efect.cpp */; };
+		812540541F13B53A00C0AF25 /* ufo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 812540501F13B53A00C0AF25 /* ufo.cpp */; };
+		812540551F13B53A00C0AF25 /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 812540521F13B53A00C0AF25 /* score.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +45,10 @@
 		8125404B1F112A1D00C0AF25 /* chara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chara.h; sourceTree = "<group>"; };
 		8125404D1F126E8400C0AF25 /* efect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = efect.cpp; sourceTree = "<group>"; };
 		8125404E1F126E8400C0AF25 /* efect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = efect.h; sourceTree = "<group>"; };
+		812540501F13B53A00C0AF25 /* ufo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ufo.cpp; sourceTree = "<group>"; };
+		812540511F13B53A00C0AF25 /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = score.h; sourceTree = "<group>"; };
+		812540521F13B53A00C0AF25 /* score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = score.cpp; sourceTree = "<group>"; };
+		812540531F13B53A00C0AF25 /* ufo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ufo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,10 @@
 				8125404B1F112A1D00C0AF25 /* chara.h */,
 				812540461F0F7C7900C0AF25 /* others.cpp */,
 				812540471F0F7C7900C0AF25 /* others.h */,
+				812540501F13B53A00C0AF25 /* ufo.cpp */,
+				812540531F13B53A00C0AF25 /* ufo.h */,
+				812540521F13B53A00C0AF25 /* score.cpp */,
+				812540511F13B53A00C0AF25 /* score.h */,
 				812540491F0F7CBC00C0AF25 /* headers.h */,
 			);
 			path = sdlsample;
@@ -153,7 +163,9 @@
 			files = (
 				8125404C1F112A1D00C0AF25 /* chara.cpp in Sources */,
 				8125404F1F126E8400C0AF25 /* efect.cpp in Sources */,
+				812540541F13B53A00C0AF25 /* ufo.cpp in Sources */,
 				812540481F0F7C7900C0AF25 /* others.cpp in Sources */,
+				812540551F13B53A00C0AF25 /* score.cpp in Sources */,
 				812540381F0F69E100C0AF25 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

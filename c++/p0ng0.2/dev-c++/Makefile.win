@@ -1,0 +1,36 @@
+# Project: p0ng
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../src/OpenGLWindow.o ../src/Pong.o ../src/WinMain.o $(RES)
+LINKOBJ  = ../src/OpenGLWindow.o ../src/Pong.o ../src/WinMain.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/SDLStuff/SDL-1.2.9/lib" -mwindows -lopengl32 -s  
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/SDLStuff/SDL-1.2.9/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/SDLStuff/SDL-1.2.9/include" 
+BIN  = p0ng.exe
+CXXFLAGS = $(CXXINCS) -Wall -pedantic -DNEBUG -O3  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before p0ng.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "p0ng.exe" $(LIBS)
+
+../src/OpenGLWindow.o: ../src/OpenGLWindow.cpp
+	$(CPP) -c ../src/OpenGLWindow.cpp -o ../src/OpenGLWindow.o $(CXXFLAGS)
+
+../src/Pong.o: ../src/Pong.cpp
+	$(CPP) -c ../src/Pong.cpp -o ../src/Pong.o $(CXXFLAGS)
+
+../src/WinMain.o: ../src/WinMain.cpp
+	$(CPP) -c ../src/WinMain.cpp -o ../src/WinMain.o $(CXXFLAGS)

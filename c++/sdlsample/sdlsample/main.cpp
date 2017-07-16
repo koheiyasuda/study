@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     while (quits()!=0) {
 
-
+        backGraund();
         inputEngine();//キー操作
 
 
@@ -31,12 +31,14 @@ int main(int argc, char *argv[])
 
             case 2://ゲームオーバー画面
                 dr_End(100, 100);
+                Mix_HaltMusic();
                 backTitle();
                 break;
                 
             default:
                 break;
         }
+        score_main();
         frames();
     }
 

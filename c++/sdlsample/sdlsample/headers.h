@@ -24,6 +24,8 @@
 #include "./others.h"
 #include "./chara.h"
 #include "./efect.h"
+#include "./score.h"
+#include "./ufo.h"
 
 using namespace std;
 

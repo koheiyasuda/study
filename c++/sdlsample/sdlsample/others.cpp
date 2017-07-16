@@ -16,6 +16,7 @@ SDL_Texture *imgTex;//画像用テクスチャ
 SDL_Rect src,dest;//描画用
 timers timer;
 inputKeys keys;
+backStars starA,starB,starC;
 
 
 void startUp()
@@ -26,6 +27,9 @@ void startUp()
 
     bkRen = SDL_CreateRenderer(mWIN, -1, 0);//2Dレンダリングコンテキスト生成
     games = 0;
+    loadSounds();//音ロード
+    imageLoadUFO();//UFO読み込み
+    imageLoadScore();//得点画像ロード
 
 }
 
@@ -62,6 +66,16 @@ void frames()
     }
     timer.lev = SDL_GetTicks();//経過時間を更新
     SDL_UpdateWindowSurface(mWIN);//画面を更新
+
+}
+
+void backGraund(){
+
+    if(games!=0)
+    {
+        bg_gra();//グラデ
+        stars();//バック地の星
+    }
 
 }
 
@@ -169,6 +183,103 @@ void backTitle()
         if(keys.z==1){
             games=0;//Ｚキーが押されたらゲームへ
         }
+    }
+}
+
+
+//------------------------------------------------------------------------------バック地の星の配置
+void stars_reset()
+{
+    int lop;
+    for(lop=0;lop<starMax;lop++)
+    {
+        starA.flg[lop]=1;
+        starA.posX[lop]=rand()%300;
+        starA.posY[lop]=rand()%400;
+
+        starB.flg[lop]=1;
+        starB.posX[lop]=rand()%300;
+        starB.posY[lop]=rand()%400;
+
+        starC.flg[lop]=1;
+        starC.posX[lop]=rand()%300;
+        starC.posY[lop]=rand()%400;
+    }
+}
+
+//------------------------------------------------------------------------------バック地の星の描画
+void stars()
+{
+    SDL_Rect star;
+    star.w=1; star.h=1;//大きさ1ドット
+
+    int lop;
+    for(lop=0;lop<starMax;lop++)
+    {
+        //青い星（以下同一）
+        if(starA.flg[lop]==0)
+        {
+            starA.flg[lop]=1;
+            starA.posX[lop]=rand()%300;
+            starA.posY[lop]=0;
+        }
+        else if(starA.flg[lop]==1)
+        {
+            starA.posY[lop]+=1;//移動量計算し代入
+            star.x=starA.posX[lop]; star.y=starA.posY[lop];
+            //描画
+            SDL_SetRenderDrawColor(bkRen, 0, 126, 255, 255);
+            SDL_RenderFillRect(bkRen, &star);
+            //フラグ下げる
+            if(starA.posY[lop]>400)starA.flg[lop]=0;
+        }
+
+        if(starB.flg[lop]==0)//白い星
+        {
+            starB.flg[lop]=1;
+            starB.posX[lop]=rand()%300; starB.posY[lop]=0;
+        }
+        else if(starB.flg[lop]==1)
+        {
+            starB.posY[lop]+=2;
+            star.x=starB.posX[lop]; star.y=starB.posY[lop];
+            SDL_SetRenderDrawColor(bkRen, 255, 255, 255, 255);
+            SDL_RenderFillRect(bkRen, &star);
+            if(starB.posY[lop]>400)starB.flg[lop]=0;
+        }
+
+        if(starC.flg[lop]==0)//緑の星
+        {
+            starC.flg[lop]=1;
+            starC.posX[lop]=rand()%300; starC.posY[lop]=0;
+        }
+        else if(starC.flg[lop]==1)
+        {
+            starC.posY[lop]+=3;
+            star.x=starC.posX[lop]; star.y=starC.posY[lop];
+            SDL_SetRenderDrawColor(bkRen, 0, 255, 0, 255);
+            SDL_RenderFillRect(bkRen, &star);
+            if(starC.posY[lop]>400)starC.flg[lop]=0;
+        }
+    }
+}
+//------------------------------------------------------------------------------バック地のグラデーション
+void bg_gra()
+{
+    Uint8 B=0;//色用
+    
+    SDL_Rect gra;//矩形領域設定
+    gra.x=0; gra.y=0;
+    gra.w=300; gra.h=4;
+    
+    int lop;
+    for(lop=0; lop<100; lop++)//描画
+    {
+        //塗り潰し
+        SDL_SetRenderDrawColor(bkRen, 0, 0, B, 255);
+        SDL_RenderFillRect(bkRen, &gra);
+        gra.y+=4;//Ｙ軸調整
+        B++;//色数値増加
     }
 }
 
